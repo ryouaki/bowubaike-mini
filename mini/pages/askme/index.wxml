@@ -1,0 +1,6 @@
+<view class="askme" style="padding-bottom: {{screenHeight - safeArea.bottom}}px;">
+  <view class="session"></view>
+  <view class="question">
+    <input class="input"></input>
+  </view>
+</view>

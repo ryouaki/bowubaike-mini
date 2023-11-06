@@ -4,6 +4,11 @@ const SYSTEM_INFO = 'SYSTEM_INFO';
 App({
   onLaunch() {
     const _this = this;
+    wx.login({
+      success: (res) => {
+        _this.globalData.code = res.code;
+      },
+    })
     wx.getLocation({
       type: 'wgs84',
       success (res) {

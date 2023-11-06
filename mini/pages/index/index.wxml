@@ -1,6 +1,12 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="card" data-method="tourist" bind:tap="navClick">景点AI导游</view>
-  <view class="card" data-method="museum" bind:tap="navClick">博物馆AI讲解</view>
-  <view class="card" data-method="askme" bind:tap="navClick">问我呀</view>
+<view class="container" style="padding-top:{{safeArea.top}}px;padding-bottom: {{screenHeight - safeArea.bottom}}px;">
+  <view class="header">
+    <view class="title">博物百科</view>
+    <view class="tips">《基于科大讯飞大模型的百科全书》</view>
+  </view>
+  <view class="answers"></view>
+  <view class="question">
+    <input class="hotkey" value="{{hotKey}}" placeholder="请输入景点名或文物名称！" maxlength="24" confirm-type="send" bindconfirm="onSubmitHandle" bindinput="bindKeyInput"/>
+    <view class="submit" bind:tap="onSubmitHandle">提交</view>
+  </view>
 </view>

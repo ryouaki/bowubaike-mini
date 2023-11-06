@@ -1,29 +1,20 @@
-// index.js
-// 获取应用实例
-const app = getApp()
+
+const app = getApp();
+const systemInfo = app.globalData.systemInfo;
 
 Page({
-  navClick(e) {
-    const { dataset } = e.currentTarget;
-    const { method = "defaultHandle" } = dataset;
-    this[`${method}_handle`](e);
+  data: {
+    safeArea: systemInfo.safeArea,
+    screenHeight: systemInfo.screenHeight,
+    hotKey: ''
   },
-  defaultHandle (e) {
+  onSubmitHandle(e) {
 
   },
-  askme_handle (e) {
-    wx.navigateTo({
-      url: '/pages/askme/index',
+  bindKeyInput: function (e) {
+    this.setData({
+      hotKey: e.detail.value
     })
   },
-  tourist_handle (e) {
-    wx.navigateTo({
-      url: '/pages/tourist/index',
-    })
-  },
-  museum_handle (e) {
-    wx.navigateTo({
-      url: '/pages/museum/index',
-    })
-  }
+
 })

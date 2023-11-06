@@ -1,14 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/askme/index",
-    "pages/tourist/index",
-    "pages/museum/index"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#eee",
-    "navigationBarTitleText": "AI智能导游",
+    "navigationBarTitleText": "博物百科",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

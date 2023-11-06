@@ -1,12 +1,59 @@
 .container {
   height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
 }
 
-.card {
-  margin: 52rpx 24rpx;
-  padding: 24rpx;
-  background-color: #fff;
-  border-radius: 12rpx;
+.header {
   text-align: center;
-  font-size: 48rpx;
+  flex-shrink: 0;
+  padding-bottom: 12rpx;
+}
+
+.header .title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.header .tips {
+  font-size: 20rpx;
+  color: #6e6e6e;
+}
+
+.answers {
+  flex: 1;
+  background-color: #fff;
+  position: relative;
+}
+
+.question {
+  flex-shrink: 0;
+  height: 120rpx;
+  display: flex;
+  padding: 18rpx 18rpx 0rpx 18rpx;
+  box-sizing: border-box;
+}
+
+.question .hotkey {
+  height: 84rpx;
+  flex: 1;
+  background-color: #fff;
+  border-radius: 24rpx;
+  box-sizing: border-box;
+  margin-right: 24rpx;
+  padding-left: 24rpx;
+}
+
+.question .submit {
+  white-space: nowrap;
+  font-size: 36rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  line-height: 36rpx;
+  text-align: center;
+  padding: 24rpx 32rpx;
+  height: 84rpx;
+  border-radius: 24rpx;
 }

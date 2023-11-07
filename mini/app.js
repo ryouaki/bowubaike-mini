@@ -9,16 +9,16 @@ App({
         _this.globalData.code = res.code;
       },
     })
-    wx.getLocation({
-      type: 'wgs84',
-      success (res) {
-        if (!_this.globalData.userInfo) {
-          _this.globalData.userInfo = {};
-        }
-        _this.globalData.userInfo.lat = res.latitude;
-        _this.globalData.userInfo.lon = res.longitude;
-      }
-     })
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success (res) {
+    //     if (!_this.globalData.userInfo) {
+    //       _this.globalData.userInfo = {};
+    //     }
+    //     _this.globalData.userInfo.lat = res.latitude;
+    //     _this.globalData.userInfo.lon = res.longitude;
+    //   }
+    //  })
   },
   onShow(options) {
     this.initSystemInfo(options);

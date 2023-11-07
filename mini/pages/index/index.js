@@ -9,7 +9,24 @@ Page({
     screenHeight: systemInfo.screenHeight,
     hotKey: '',
     history: [],
-    times: 5
+    times: 5,
+    keyboardHeight: 0
+  },
+  onLoad() {
+    this.onKeyboardResizeListener = this.onKeyboardResize.bind(this);
+  },
+  onKeyboardResize(res) {
+    const { height } = res;
+    console.log(height)
+    this.setData({
+      keyboardHeight: height,
+    })
+  },
+  onShow() {
+    wx.onKeyboardHeightChange(this.onKeyboardResizeListener)
+  },
+  onUnload() {
+    wx.offKeyboardHeightChange(this.onKeyboardResizeListener)
   },
   onMessageHandle(success, jsonData) {
     if (!success) return;
@@ -44,7 +61,7 @@ Page({
     })
   },
   onSubmitHandle() {
-    if (this.data.times > 0) {
+    if (this.data.times > 0 || !this.data.hotKey) {
       this.setData({
         times: this.data.times - 1
       }, () => {

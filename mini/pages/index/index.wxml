@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" style="padding-top:{{safeArea.top}}px;padding-bottom: {{screenHeight - safeArea.bottom}}px;">
+<view class="container" style="height: {{screenHeight - keyboardHeight}}px;padding-top:{{safeArea.top}}px;padding-bottom: {{screenHeight - safeArea.bottom}}px;">
   <view class="header">
     <view class="title">博物百科</view>
     <view class="tips">《基于科大讯飞大模型的百科全书》</view>

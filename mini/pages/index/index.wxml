@@ -4,9 +4,16 @@
     <view class="title">博物百科</view>
     <view class="tips">《基于科大讯飞大模型的百科全书》</view>
   </view>
-  <view class="answers"></view>
+  <view class="answers">
+    <scroll-view class="history" scroll-y="true">
+      <view wx:for="{{history}}" wx:key="uidkey" class="answer">
+        <view class="title">{{item.question}}</view>
+        <view class="content">{{item.data}}</view>
+      </view>
+    </scroll-view>
+  </view>
   <view class="question">
     <input class="hotkey" value="{{hotKey}}" placeholder="请输入景点名或文物名称！" maxlength="24" confirm-type="send" bindconfirm="onSubmitHandle" bindinput="bindKeyInput"/>
-    <view class="submit" bind:tap="onSubmitHandle">提交</view>
+    <view class="submit" bind:tap="onSubmitHandle">提交({{times}}/5)</view>
   </view>
 </view>

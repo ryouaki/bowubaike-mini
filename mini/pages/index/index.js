@@ -1,4 +1,4 @@
-const { sendMessage, getWebsocket } = require("../../utils/util");
+const { sendMessage } = require("../../utils/xfsdk/index");
 
 const app = getApp();
 const systemInfo = app.globalData.systemInfo;
@@ -7,53 +7,54 @@ Page({
   data: {
     safeArea: systemInfo.safeArea,
     screenHeight: systemInfo.screenHeight,
-    hotKey: ''
+    hotKey: '',
+    history: [],
+    times: 5
   },
-  async onReady() {
-    this.webScoket = await getWebsocket();
-    this.webScoket.onClose((res) => {
-      this.onCloseHandle(res)
-    });
-    this.webScoket.onError((res) => {
-      this.onErrorHandle(res)
-    });
-    this.webScoket.onMessage((res) => {
-      this.onMessageHandle(res)
-    });
+  onMessageHandle(success, jsonData) {
+    if (!success) return;
+    const { header, payload = {} } = jsonData;
+    const { text = [] } = payload.choices || {};
+    const history = [].concat(this.data.history);
+    if (header.code === 0) {
+      switch (header.status) {
+        case 0:
+          history.unshift({
+            uidkey: header.sid,
+            question: this.data.hotKey,
+            data: text.map((item) => {
+              return item.content
+            }).join()
+          })
+          break;
+        case 1:
+        case 2:
+          const item = history[0];
+          item.data = item.data + text.map((item) => {
+            return item.content
+          }).join()
+          break;
+      }
+      this.setData({
+        history
+      })
+    }
+    this.setData({
+      hotKey: ''
+    })
   },
-  async onCloseHandle(e) {
-    this.webScoket = await getWebsocket();
-    console.error(e);
-  },
-  async onErrorHandle(e) {
-    this.webScoket = await getWebsocket();
-    console.error(e)
-  },
-  onMessageHandle(resultData) {
-    const data = resultData.data || resultData;
-    let jsonData = JSON.parse(data)
-    console.log(jsonData)
-    // total_res = total_res + resultData
-    // $('#output_text').val(total_res)
-    // // console.log(resultData)
-    // // 提问失败
-    // if (jsonData.header.code !== 0) {
-    //     alert(`提问失败: ${jsonData.header.code}:${jsonData.header.message}`)
-    //     console.error(`${jsonData.header.code}:${jsonData.header.message}`)
-    //     return
-    // }
-    // if (jsonData.header.code === 0 && jsonData.header.status === 2) {
-    //     this.ttsWS.close()
-    //     bigModel.setStatus("init")
-    // }
-  },
-  onSubmitHandle(e) {
-    sendMessage(this.data.hotKey, this.webScoket)
+  onSubmitHandle() {
+    if (this.data.times > 1) {
+      this.setData({
+        times: this.data.times - 1
+      }, () => {
+        sendMessage(this.data.hotKey, this.onMessageHandle.bind(this))
+      })
+    }
   },
   bindKeyInput: function (e) {
     this.setData({
       hotKey: e.detail.value
     })
-  },
-
+  }
 })

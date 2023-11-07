@@ -53,8 +53,10 @@ Page({
     }
   },
   bindKeyInput: function (e) {
-    this.setData({
-      hotKey: e.detail.value
-    })
+    if (this.data.times > 0) {
+      this.setData({
+        hotKey: e.detail.value
+      })
+    }
   }
 })

@@ -11,12 +11,7 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "requiredPrivateInfos": [
-    "getLocation",
-    "onLocationChange"
   ],
   "permission": {
-    "scope.userLocation": {
-      "desc": "你的位置信息将有助于帮助您获得更精准的服务"
-    }
   }
 }

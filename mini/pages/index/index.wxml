@@ -13,7 +13,7 @@
     </scroll-view>
   </view>
   <view class="question">
-    <input class="hotkey" value="{{hotKey}}" placeholder="请输入景点名或文物名称！" maxlength="24" confirm-type="send" bindconfirm="onSubmitHandle" bindinput="bindKeyInput"/>
-    <view class="submit" bind:tap="onSubmitHandle">提交({{times}}/5)</view>
+    <input class="hotkey {{times === 0 ? 'disabled':''}}" disabled="{{times === 0}}" value="{{hotKey}}" placeholder="请输入景点名或文物名称！" maxlength="24" confirm-type="send" bindconfirm="onSubmitHandle" bindinput="bindKeyInput"/>
+    <view class="submit {{times === 0 ? 'disabled':''}}" bind:tap="onSubmitHandle">提交({{times}}/5)</view>
   </view>
 </view>

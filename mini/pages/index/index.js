@@ -44,7 +44,7 @@ Page({
     })
   },
   onSubmitHandle() {
-    if (this.data.times > 1) {
+    if (this.data.times > 0) {
       this.setData({
         times: this.data.times - 1
       }, () => {

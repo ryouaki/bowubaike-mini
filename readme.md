@@ -4,10 +4,10 @@
 
 星火大模型在中文AIGC这块还是很拉垮的，生成效果个人觉得不如百川和文心一言。更不用说GPT4了。但是GPT4过于生搬硬套。百川和文心一言相对来说会更生动一些。但是因为没有免费接口，所以只能使用星火大模型。
 
-![](/assists/home.png){:height="50%" width="50%"}
-![](/WechatIMG56.jpg){:height="50%" width="50%"}
-![](/WechatIMG57.jpg){:height="50%" width="50%"}
-![](/WechatIMG58.jpg){:height="50%" width="50%"}
+<img src="https://github.com/ryouaki/ai-tour/blob/main//assists/home.png" width="40%">
+<img src="https://github.com/ryouaki/ai-tour/blob/main/WechatIMG56.jpg" width="40%">
+<img src="https://github.com/ryouaki/ai-tour/blob/main/WechatIMG57.jpg" width="40%">
+<img src="https://github.com/ryouaki/ai-tour/blob/main/WechatIMG58.jpg" width="40%">
 
 ## 使用
 

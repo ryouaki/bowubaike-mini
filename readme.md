@@ -2,6 +2,11 @@
 
 基于科大讯飞大模型开发的博物百科小程序，因为现在小程序发布需要备案。而且大模型相关不能个人备案。因此产品流产了。现在将一部分功能开源出来供大家玩赏。
 
+![](/assists/home.png)
+![](/WechatIMG56.jpg)
+![](/WechatIMG57.jpg)
+![](/WechatIMG58.jpg)
+
 ## 使用
 
 需要自己去科大讯飞星火大模型申请appid，appkey，appsercet，科大讯飞提供10w免费tokens。注册领取即可。[链接](https://xinghuo.xfyun.cn/)
